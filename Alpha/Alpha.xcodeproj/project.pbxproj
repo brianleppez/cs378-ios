@@ -22,6 +22,7 @@
 		57D1041319EDC7AC0052DCF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57D1041119EDC7AC0052DCF0 /* InfoPlist.strings */; };
 		57D1041519EDC7AC0052DCF0 /* AlphaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D1041419EDC7AC0052DCF0 /* AlphaTests.m */; };
 		57D1041F19EDC7F00052DCF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1041E19EDC7F00052DCF0 /* MapKit.framework */; };
+		CDCC6A9E19EDD58C007D459D /* ASettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		57D1041219EDC7AC0052DCF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57D1041419EDC7AC0052DCF0 /* AlphaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlphaTests.m; sourceTree = "<group>"; };
 		57D1041E19EDC7F00052DCF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CDCC6A9C19EDD58C007D459D /* ASettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASettingsTableViewController.h; sourceTree = "<group>"; };
+		CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				57D103F819EDC7AC0052DCF0 /* AAppDelegate.h */,
 				57D103F919EDC7AC0052DCF0 /* AAppDelegate.m */,
 				57D103FB19EDC7AC0052DCF0 /* Main.storyboard */,
+				CDCC6A9C19EDD58C007D459D /* ASettingsTableViewController.h */,
+				CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */,
 				57D103FE19EDC7AC0052DCF0 /* AViewController.h */,
 				57D103FF19EDC7AC0052DCF0 /* AViewController.m */,
 				57D1040119EDC7AC0052DCF0 /* Images.xcassets */,
@@ -263,6 +268,7 @@
 			files = (
 				57D1040019EDC7AC0052DCF0 /* AViewController.m in Sources */,
 				57D103FA19EDC7AC0052DCF0 /* AAppDelegate.m in Sources */,
+				CDCC6A9E19EDD58C007D459D /* ASettingsTableViewController.m in Sources */,
 				57D103F619EDC7AC0052DCF0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +476,7 @@
 				57D1041A19EDC7AC0052DCF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57D1041B19EDC7AC0052DCF0 /* Build configuration list for PBXNativeTarget "AlphaTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +485,7 @@
 				57D1041D19EDC7AC0052DCF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
