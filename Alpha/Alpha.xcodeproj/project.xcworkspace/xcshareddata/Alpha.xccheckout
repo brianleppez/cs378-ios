@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7210BFE9-3B2D-4738-846D-AEB07C08FE1D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Alpha</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A3582969-0590-4287-9B7E-3ECA68E39DCE</key>
+		<string>https://github.com/brianleppez/cs378-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Alpha/Alpha.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A3582969-0590-4287-9B7E-3ECA68E39DCE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brianleppez/cs378-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A3582969-0590-4287-9B7E-3ECA68E39DCE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A3582969-0590-4287-9B7E-3ECA68E39DCE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs378-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
