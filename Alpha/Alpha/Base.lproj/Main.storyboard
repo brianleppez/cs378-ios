@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-359" y="-291"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="AViewController" sceneMemberID="viewController">
