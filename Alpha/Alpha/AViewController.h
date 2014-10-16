@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <MessageUI/MessageUI.h>
 
 @interface AViewController : UIViewController {
 
     MKMapView *mapView;
+    NSDictionary *friends;
 }
 
 @end

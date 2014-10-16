@@ -22,6 +22,10 @@
     mapView.showsUserLocation = YES;
     mapView.mapType = MKMapTypeStandard;
     
+    //resize map
+    CGRect frame = mapView.frame;
+    frame.size.height = mapView.bounds.size.height - 100;
+    mapView.frame = frame;
     
     CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
     MKCoordinateSpan span = {.latitudeDelta =  0.2, .longitudeDelta =  0.2};
@@ -30,8 +34,9 @@
     [mapView setRegion:region];
     [self.view addSubview:mapView];
     
-    
-    
+    //static data for the friends array for now
+    friends = @{@"Rachel" : [NSNumber numberWithLongLong:(8308325680)],
+                @"Becky" : [NSNumber numberWithLongLong:(5126007770)]};
     
 }
 
@@ -40,5 +45,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
