@@ -22,6 +22,7 @@
 		57D1041319EDC7AC0052DCF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57D1041119EDC7AC0052DCF0 /* InfoPlist.strings */; };
 		57D1041519EDC7AC0052DCF0 /* AlphaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D1041419EDC7AC0052DCF0 /* AlphaTests.m */; };
 		57D1041F19EDC7F00052DCF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1041E19EDC7F00052DCF0 /* MapKit.framework */; };
+		8A23991F19F7205500B39123 /* FriendSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A23991D19F7205500B39123 /* FriendSelectorViewController.m */; };
 		CDCC6A9E19EDD58C007D459D /* ASettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		57D1041219EDC7AC0052DCF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57D1041419EDC7AC0052DCF0 /* AlphaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlphaTests.m; sourceTree = "<group>"; };
 		57D1041E19EDC7F00052DCF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8A23991D19F7205500B39123 /* FriendSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendSelectorViewController.m; path = ../../../../../../Desktop/FriendSelectorViewController.m; sourceTree = "<group>"; };
+		8A23991E19F7205500B39123 /* FriendSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendSelectorViewController.h; path = ../../../../../../Desktop/FriendSelectorViewController.h; sourceTree = "<group>"; };
 		CDCC6A9C19EDD58C007D459D /* ASettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASettingsTableViewController.h; sourceTree = "<group>"; };
 		CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				57D103FE19EDC7AC0052DCF0 /* AViewController.h */,
 				57D103FF19EDC7AC0052DCF0 /* AViewController.m */,
 				57D1040119EDC7AC0052DCF0 /* Images.xcassets */,
+				8A23991D19F7205500B39123 /* FriendSelectorViewController.m */,
+				8A23991E19F7205500B39123 /* FriendSelectorViewController.h */,
 				57D103F019EDC7AC0052DCF0 /* Supporting Files */,
 			);
 			path = Alpha;
@@ -269,6 +274,7 @@
 				57D1040019EDC7AC0052DCF0 /* AViewController.m in Sources */,
 				57D103FA19EDC7AC0052DCF0 /* AAppDelegate.m in Sources */,
 				CDCC6A9E19EDD58C007D459D /* ASettingsTableViewController.m in Sources */,
+				8A23991F19F7205500B39123 /* FriendSelectorViewController.m in Sources */,
 				57D103F619EDC7AC0052DCF0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
