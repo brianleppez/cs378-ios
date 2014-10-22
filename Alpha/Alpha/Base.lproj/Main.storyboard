@@ -436,10 +436,10 @@
             </objects>
             <point key="canvasLocation" x="154" y="-1071"/>
         </scene>
-        <!--View Controller-->
+        <!--Text Composer Controller-->
         <scene sceneID="3xV-Y4-Oou">
             <objects>
-                <viewController id="mUa-NS-2EQ" sceneMemberID="viewController">
+                <viewController id="mUa-NS-2EQ" customClass="ATextComposerController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Qr-l5-Ma1"/>
                         <viewControllerLayoutGuide type="bottom" id="41M-C7-Bhp"/>
@@ -476,6 +476,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="friendsLabel" destination="z1H-wO-z7D" id="Hoj-hm-5rR"/>
+                        <outlet property="messagePicker" destination="zZ0-oG-wZv" id="liA-Bb-CN6"/>
+                        <outlet property="messageText" destination="xuj-X9-ZSb" id="fGZ-YL-flK"/>
+                        <outlet property="sendButton" destination="JbC-IN-PGJ" id="22k-DA-3UX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAS-F8-AiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

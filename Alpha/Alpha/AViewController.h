@@ -13,7 +13,6 @@
 @interface AViewController : UIViewController {
 
     MKMapView *mapView;
-    NSDictionary *friends;
 }
 
 @end

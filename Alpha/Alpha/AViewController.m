@@ -33,10 +33,7 @@
     
     [mapView setRegion:region];
     [self.view addSubview:mapView];
-    
-    //static data for the friends array for now
-    friends = @{@"Rachel" : [NSNumber numberWithLongLong:(8308325680)],
-                @"Becky" : [NSNumber numberWithLongLong:(5126007770)]};
+
     
 }
 
