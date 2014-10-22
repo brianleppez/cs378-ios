@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     [self.sendButton addTarget:self action:@selector(btnSendClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.messageText setDelegate:self];
+    self.friendsLabel.text = @"Recipients: Rachel, Becky";
     //[self.messageText setDelegate:self];
 }
 
@@ -61,9 +63,9 @@
 -(void)sendText:(NSString *)text
 {
     //static data for the friends array for now
-    NSDictionary* friends = @{@"Rachel" : [NSNumber numberWithLongLong:(8308325680)],
+    /*NSDictionary* friends = @{@"Rachel" : [NSNumber numberWithLongLong:(8308325680)],
                               @"Becky" : [NSNumber numberWithLongLong:(5126007770)]};
-    NSArray *recipents = @[@"8308325680", @"5126007770"];
+    NSArray *recipents = @[@"8308325680", @"5126007770"];*/
     
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
