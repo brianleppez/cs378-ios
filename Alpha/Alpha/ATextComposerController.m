@@ -34,7 +34,8 @@
     self.messageText.layer.borderColor = [[UIColor lightGrayColor]CGColor];
     //self.messageText.clipsToBounds = YES;
     self.messageText.layer.cornerRadius = 10.0f;
-    //[self.messageText setDelegate:self];
+    [self textViewDidEndEditing:self.messageText];
+        //[self.messageText setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,7 +115,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@"placeholder text here..."]) {
+    if ([textView.text isEqualToString:@"Enter message here..."]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor]; //optional
     }
@@ -124,7 +125,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"placeholder text here...";
+        textView.text = @"Enter message here...";
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
