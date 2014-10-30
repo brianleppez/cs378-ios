@@ -8,7 +8,7 @@
 
 #import "ATextComposerController.h"
 
-@interface ATextComposerController () <ATextModelProtocol, UITextFieldDelegate, MFMessageComposeViewControllerDelegate>
+@interface ATextComposerController () <ATextModelProtocol, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, UITextViewDelegate>
 
 @end
 
@@ -29,6 +29,11 @@
     [self.sendButton addTarget:self action:@selector(btnSendClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.messageText setDelegate:self];
     self.friendsLabel.text = @"Recipients: Rachel, Becky";
+    [self.messageText setDelegate:self];
+    self.messageText.layer.borderWidth = 1.0f;
+    self.messageText.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    //self.messageText.clipsToBounds = YES;
+    self.messageText.layer.cornerRadius = 10.0f;
     //[self.messageText setDelegate:self];
 }
 
@@ -41,6 +46,13 @@
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return YES;
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+        [textView resignFirstResponder];
     return YES;
 }
 
@@ -98,6 +110,29 @@
         default:
             break;
     }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"placeholder text here..."]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"placeholder text here...";
+        textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
+}
+
+-(BOOL)automaticallyAdjustsScrollViewInsets
+{
+    return NO;
 }
 
 /*
