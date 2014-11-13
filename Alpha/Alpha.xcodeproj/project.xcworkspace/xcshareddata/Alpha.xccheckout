@@ -14,7 +14,7 @@
 		<string>https://github.com/brianleppez/cs378-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Alpha/Alpha.xcodeproj/project.xcworkspace</string>
+	<string>Alpha/Alpha.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C30F3B57B252B502FFE27DF407437DE915CF69F7</key>

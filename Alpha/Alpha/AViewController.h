@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <MessageUI/MessageUI.h>
+#import "AMapViewAnnotation.h"
 
 @interface AViewController : UIViewController {
 
