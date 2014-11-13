@@ -11,11 +11,11 @@
 @implementation AMapViewAnnotation
 
 @synthesize coordinate=_coordinate;
-@synthesize name=_name;
--(id) initWithName:(NSString *)name AndCoordinate:(CLLocationCoordinate2D)coordinate {
+@synthesize title=_name;
+-(id) initWithTitle:(NSString *)title AndCoordinate:(CLLocationCoordinate2D)coordinate {
     self = [super init];
-    _name = name;
-    _coordinate = coordinate;
+    title = title;
+    coordinate = coordinate;
     return self;
 }
 

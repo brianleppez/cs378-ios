@@ -27,11 +27,11 @@
     
 //    [mapView setRegion:region];
     [self.view addSubview:mapView];
-    [mapView addAnnotations: [self createAnnotations]];
+    [self->mapView addAnnotations: [self createAnnotations]];
 
     
 }
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
     CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
     
@@ -40,7 +40,7 @@
     [mapView setRegion:viewRegion animated:YES];
 
 }
-*/
+
 -(NSMutableArray *) createAnnotations {
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
@@ -51,17 +51,20 @@
     
     NSArray *locations = [NSArray arrayWithContentsOfFile:path];
     for (NSDictionary *row in locations) {
-        NSNumber *latitude = [row objectForKey:@"latitude"];
-        NSNumber *longitude = [row objectForKey:@"longitude"];
-        NSString *name = [row objectForKey:@"name"];
+        NSString *title = [row objectForKey:@"Name"];
+        NSNumber *latitude = [row objectForKey:@"Latitude"];
+        NSNumber *longitude = [row objectForKey:@"Longitude"];
+        
         
         
         //Create coordinates from the latitude and longitude values
         CLLocationCoordinate2D coord;
         coord.latitude = latitude.doubleValue;
         coord.longitude = longitude.doubleValue;
-        AMapViewAnnotation *annotation = [[AMapViewAnnotation alloc] initWithName:name AndCoordinate:coord];
-        [annotations addObject:annotation];
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        point.coordinate = coord;
+        point.title = title;
+        [annotations addObject:point];
     }
     return annotations;
     
@@ -71,7 +74,7 @@
 {
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 30.2669444;
-    zoomLocation.longitude= 97.7427778;
+    zoomLocation.longitude= -97.7427778;
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 7.5*METERS_PER_MILE,7.5*METERS_PER_MILE);
     [mapView setRegion:viewRegion animated:YES];
