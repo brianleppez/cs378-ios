@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ATextModel.h"
 
-@interface ATextComposerController : UIViewController
+@interface ATextComposerController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *messageText;
 @property (weak, nonatomic) IBOutlet UILabel *friendsLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *messagePicker;
