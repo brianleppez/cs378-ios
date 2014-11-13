@@ -9,6 +9,9 @@
 #import "ATextComposerController.h"
 
 @interface ATextComposerController () <ATextModelProtocol, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, UITextViewDelegate>
+{
+    NSArray *_pickerData;
+}
 
 @end
 
@@ -35,6 +38,11 @@
     //self.messageText.clipsToBounds = YES;
     [self.messageText.layer setCornerRadius:10.0f];
     [self textViewDidEndEditing:self.messageText];
+    
+    _pickerData = @[@"Let's meet up", @"Where are you?", @"Are you ready to leave?",
+                    @"I'm ready to go", @"I can't find you"];
+    [self.messagePicker setDataSource:self];
+    [self.messagePicker setDelegate:self];
         //[self.messageText setDelegate:self];
 }
 
@@ -134,6 +142,34 @@
 -(BOOL)automaticallyAdjustsScrollViewInsets
 {
     return NO;
+}
+
+// The number of columns of data
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerData.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _pickerData[row];
+}
+
+// Catpure the picker view selection
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [self textViewDidBeginEditing:_messageText];
+    NSString *currentText = [_messageText.text stringByAppendingString:@" "];
+    NSString *text = [currentText stringByAppendingString:_pickerData[row]];
+    [self.messageText setText:text];
+    [self textViewDidEndEditing:_messageText];
 }
 
 /*
