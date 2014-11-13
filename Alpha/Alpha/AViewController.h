@@ -13,5 +13,4 @@
 
     __weak IBOutlet MKMapView *mapView;
 }
-
 @end

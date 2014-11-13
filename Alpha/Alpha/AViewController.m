@@ -22,21 +22,42 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
-//    MKCoordinateSpan span = {.latitudeDelta =  0.2, .longitudeDelta =  0.2};
-//    MKCoordinateRegion region = {coord, span};
     
-//    [mapView setRegion:region];
+    
     Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
     [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary* firebaseDict = snapshot.value;
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
-        //NSDictionary* foo = [firebaseDict objectForKey:@"samallen"];
-        //NSLog(@"%@ -> %@", snapshot.key, snapshot.value);
     }];
+    [mapView setDelegate:self];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // If it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // Handle any custom annotations.
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        // Try to dequeue an existing pin view first.
+        MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        if (!pinView)
+        {
+            // If an existing pin view was not available, create one.
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            //pinView.animatesDrop = YES;
+            pinView.canShowCallout = YES;
+            pinView.tintColor = [UIColor greenColor];
+        } else {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    return nil;
+}
 - (void)viewWillAppear:(BOOL)animated {
     CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
     
@@ -69,6 +90,8 @@
     return annotations;
     
 }
+
+
 
 - (void)zoomToLocation
 {
