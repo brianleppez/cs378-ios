@@ -38,10 +38,21 @@
     [self.view addSubview:mapView];
     [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary* firebaseDict = snapshot.value;
+        [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
         //NSDictionary* foo = [firebaseDict objectForKey:@"samallen"];
         //NSLog(@"%@ -> %@", snapshot.key, snapshot.value);
     }];
+}
+
+- (void)deleteAllPins{
+    id userLocation = [mapView userLocation];
+    NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:[mapView annotations]];
+    if ( userLocation != nil ) {
+        [pins removeObject:userLocation]; // avoid removing user location off the map
+    }
+    [mapView removeAnnotations:pins];
+    pins = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
