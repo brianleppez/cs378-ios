@@ -8,6 +8,7 @@
 
 #import "AViewController.h"
 #import "AMapViewAnnotation.h"
+#import <Firebase/Firebase.h>
 
 @interface AViewController ()
 
@@ -26,10 +27,14 @@
 //    MKCoordinateRegion region = {coord, span};
     
 //    [mapView setRegion:region];
+    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
-    [self->mapView addAnnotations: [self createAnnotations]];
-
-    
+    [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSDictionary* firebaseDict = snapshot.value;
+        [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
+        //NSDictionary* foo = [firebaseDict objectForKey:@"samallen"];
+        //NSLog(@"%@ -> %@", snapshot.key, snapshot.value);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,21 +46,16 @@
 
 }
 
--(NSMutableArray *) createAnnotations {
+-(NSMutableArray *) createAnnotations:(NSDictionary*)json {
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
     // Read locations from the locations property list
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"plist"];
-    
-    
-    NSArray *locations = [NSArray arrayWithContentsOfFile:path];
-    for (NSDictionary *row in locations) {
-        NSString *title = [row objectForKey:@"Name"];
-        NSNumber *latitude = [row objectForKey:@"Latitude"];
-        NSNumber *longitude = [row objectForKey:@"Longitude"];
-        
-        
+    for(id key in json) {
+        NSDictionary* value = [json objectForKey:key];
+        NSString *title = key;
+        NSNumber *latitude = [value objectForKey:@"lat"];
+        NSNumber *longitude = [value objectForKey:@"lon"];
         
         //Create coordinates from the latitude and longitude values
         CLLocationCoordinate2D coord;
