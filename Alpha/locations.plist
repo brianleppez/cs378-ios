@@ -9,6 +9,8 @@
 		<real>30.286228</real>
 		<key>Longitude</key>
 		<real>-97.73710699999999</real>
+		<key>Battery Level</key>
+		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -17,6 +19,8 @@
 		<real>30.287308</real>
 		<key>Longitude</key>
 		<real>-97.746582</real>
+		<key>Battery Level</key>
+		<integer>0</integer>
 	</dict>
 </array>
 </plist>

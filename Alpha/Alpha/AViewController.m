@@ -21,6 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //set battery monitoring
+    UIDevice *device = [UIDevice currentDevice];
+    device.batteryMonitoringEnabled = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     
@@ -28,6 +35,7 @@
     [self.view addSubview:mapView];
     [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary* firebaseDict = snapshot.value;
+        [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
     }];
     [mapView setDelegate:self];
@@ -58,6 +66,16 @@
     }
     return nil;
 }
+- (void)deleteAllPins{
+    id userLocation = [mapView userLocation];
+    NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:[mapView annotations]];
+    if ( userLocation != nil ) {
+        [pins removeObject:userLocation]; // avoid removing user location off the map
+    }
+    [mapView removeAnnotations:pins];
+    pins = nil;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
     
@@ -103,6 +121,12 @@
     [mapView setRegion:viewRegion animated:YES];
     
     [mapView regionThatFits:viewRegion];
+}
+
+- (NSNumber *)getBatteryLevel
+{
+    UIDevice *device = [UIDevice currentDevice];
+    return [NSNumber numberWithFloat:device.batteryLevel];
 }
 
 - (void)didReceiveMemoryWarning
