@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "AMapViewAnnotation.h"
 
 @interface AViewController : UIViewController {
 
-    MKMapView *mapView;
+    __weak IBOutlet MKMapView *mapView;
 }
 
 @end

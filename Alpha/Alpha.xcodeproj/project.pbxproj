@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		57BCC0291A12FB8500B8E5DC /* locations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = locations.plist; path = ../locations.plist; sourceTree = "<group>"; };
+		57BCC0291A12FB8500B8E5DC /* locations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = locations.plist; sourceTree = "<group>"; };
 		57BCC02B1A12FD6200B8E5DC /* AMapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapViewAnnotation.h; sourceTree = "<group>"; };
 		57BCC02C1A12FD6200B8E5DC /* AMapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapViewAnnotation.m; sourceTree = "<group>"; };
 		57D103E619EDC7AC0052DCF0 /* Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alpha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +105,7 @@
 		57D103DD19EDC7AC0052DCF0 = {
 			isa = PBXGroup;
 			children = (
+				57BCC0291A12FB8500B8E5DC /* locations.plist */,
 				57D103EF19EDC7AC0052DCF0 /* Alpha */,
 				57D1040E19EDC7AC0052DCF0 /* AlphaTests */,
 				57D103E819EDC7AC0052DCF0 /* Frameworks */,
@@ -154,7 +155,6 @@
 				8ADC902E19F733720060304B /* ATextModel.m */,
 				8ADC902519F721A90060304B /* ATaxiTableViewController.h */,
 				8ADC902619F721A90060304B /* ATaxiTableViewController.m */,
-				57BCC0291A12FB8500B8E5DC /* locations.plist */,
 			);
 			path = Alpha;
 			sourceTree = "<group>";

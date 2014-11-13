@@ -7,6 +7,7 @@
 //
 
 #import "AViewController.h"
+#import "AMapViewAnnotation.h"
 
 @interface AViewController ()
 
@@ -20,20 +21,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    mapView.showsUserLocation = YES;
-    mapView.mapType = MKMapTypeStandard;
+//    CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
+//    MKCoordinateSpan span = {.latitudeDelta =  0.2, .longitudeDelta =  0.2};
+//    MKCoordinateRegion region = {coord, span};
     
-    //resize map
-    CGRect frame = mapView.frame;
-    frame.size.height = mapView.bounds.size.height - 100;
-    mapView.frame = frame;
-    
-    CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
-    MKCoordinateSpan span = {.latitudeDelta =  0.2, .longitudeDelta =  0.2};
-    MKCoordinateRegion region = {coord, span};
-    
-    [mapView setRegion:region];
+//    [mapView setRegion:region];
     [self.view addSubview:mapView];
     [mapView addAnnotations: [self createAnnotations]];
 
