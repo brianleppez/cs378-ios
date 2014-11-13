@@ -21,6 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //set battery monitoring
+    UIDevice *device = [UIDevice currentDevice];
+    device.batteryMonitoringEnabled = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 //    CLLocationCoordinate2D coord = {.latitude =  30.2669444, .longitude =  -97.7427778};
 //    MKCoordinateSpan span = {.latitudeDelta =  0.2, .longitudeDelta =  0.2};
@@ -80,6 +87,12 @@
     [mapView setRegion:viewRegion animated:YES];
     
     [mapView regionThatFits:viewRegion];
+}
+
+- (NSNumber *)getBatteryLevel
+{
+    UIDevice *device = [UIDevice currentDevice];
+    return [NSNumber numberWithFloat:device.batteryLevel];
 }
 
 - (void)didReceiveMemoryWarning
