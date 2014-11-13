@@ -27,6 +27,12 @@
 		8ADC902719F721A90060304B /* ATaxiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADC902619F721A90060304B /* ATaxiTableViewController.m */; };
 		8ADC902C19F72E620060304B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ADC902B19F72E620060304B /* MessageUI.framework */; };
 		8ADC902F19F733720060304B /* ATextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADC902E19F733720060304B /* ATextModel.m */; };
+		CD81ABE51A15644600533982 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABE41A15644600533982 /* Firebase.framework */; };
+		CD81ABE71A15653900533982 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABE61A15653900533982 /* libicucore.dylib */; };
+		CD81ABE91A15654700533982 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABE81A15654700533982 /* libc++.dylib */; };
+		CD81ABEB1A15655500533982 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABEA1A15655500533982 /* CFNetwork.framework */; };
+		CD81ABED1A15656100533982 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABEC1A15656100533982 /* Security.framework */; };
+		CD81ABEF1A15656F00533982 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD81ABEE1A15656F00533982 /* SystemConfiguration.framework */; };
 		CDCC6A9E19EDD58C007D459D /* ASettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +75,12 @@
 		8ADC902B19F72E620060304B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8ADC902D19F733720060304B /* ATextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATextModel.h; sourceTree = "<group>"; };
 		8ADC902E19F733720060304B /* ATextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATextModel.m; sourceTree = "<group>"; };
+		CD81ABE41A15644600533982 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		CD81ABE61A15653900533982 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		CD81ABE81A15654700533982 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		CD81ABEA1A15655500533982 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD81ABEC1A15656100533982 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CD81ABEE1A15656F00533982 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CDCC6A9C19EDD58C007D459D /* ASettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASettingsTableViewController.h; sourceTree = "<group>"; };
 		CDCC6A9D19EDD58C007D459D /* ASettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +90,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD81ABEF1A15656F00533982 /* SystemConfiguration.framework in Frameworks */,
+				CD81ABED1A15656100533982 /* Security.framework in Frameworks */,
+				CD81ABEB1A15655500533982 /* CFNetwork.framework in Frameworks */,
+				CD81ABE91A15654700533982 /* libc++.dylib in Frameworks */,
+				CD81ABE71A15653900533982 /* libicucore.dylib in Frameworks */,
 				8ADC902C19F72E620060304B /* MessageUI.framework in Frameworks */,
+				CD81ABE51A15644600533982 /* Firebase.framework in Frameworks */,
 				57D103EC19EDC7AC0052DCF0 /* CoreGraphics.framework in Frameworks */,
 				57D103EE19EDC7AC0052DCF0 /* UIKit.framework in Frameworks */,
 				57D1041F19EDC7F00052DCF0 /* MapKit.framework in Frameworks */,
@@ -102,6 +120,7 @@
 		57D103DD19EDC7AC0052DCF0 = {
 			isa = PBXGroup;
 			children = (
+				CD81ABE41A15644600533982 /* Firebase.framework */,
 				57BCC0291A12FB8500B8E5DC /* locations.plist */,
 				57D103EF19EDC7AC0052DCF0 /* Alpha */,
 				57D1040E19EDC7AC0052DCF0 /* AlphaTests */,
@@ -122,6 +141,11 @@
 		57D103E819EDC7AC0052DCF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD81ABEE1A15656F00533982 /* SystemConfiguration.framework */,
+				CD81ABEC1A15656100533982 /* Security.framework */,
+				CD81ABEA1A15655500533982 /* CFNetwork.framework */,
+				CD81ABE81A15654700533982 /* libc++.dylib */,
+				CD81ABE61A15653900533982 /* libicucore.dylib */,
 				8ADC902B19F72E620060304B /* MessageUI.framework */,
 				57D1041E19EDC7F00052DCF0 /* MapKit.framework */,
 				57D103E919EDC7AC0052DCF0 /* Foundation.framework */,
@@ -420,9 +444,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alpha/Alpha-Prefix.pch";
 				INFOPLIST_FILE = "Alpha/Alpha-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -434,9 +463,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alpha/Alpha-Prefix.pch";
 				INFOPLIST_FILE = "Alpha/Alpha-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
