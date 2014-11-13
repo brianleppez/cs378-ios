@@ -28,12 +28,12 @@
     [super viewDidLoad];
     [self.sendButton addTarget:self action:@selector(btnSendClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.messageText setDelegate:self];
-    self.friendsLabel.text = @"Recipients: Rachel, Becky";
+    [self.friendsLabel setText:@"Recipients: Rachel, Becky"];
     [self.messageText setDelegate:self];
-    self.messageText.layer.borderWidth = 1.0f;
-    self.messageText.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    [self.messageText.layer setBorderWidth:1.0f];
+    [self.messageText.layer setBorderColor:[[UIColor lightGrayColor]CGColor]];
     //self.messageText.clipsToBounds = YES;
-    self.messageText.layer.cornerRadius = 10.0f;
+    [self.messageText.layer setCornerRadius:10.0f];
     [self textViewDidEndEditing:self.messageText];
         //[self.messageText setDelegate:self];
 }
