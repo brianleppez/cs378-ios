@@ -53,7 +53,7 @@
     //Enter phone number
     if (indexPath.row == 6)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your phone number." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"Enter your phone number." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
         [alert setTag:2];
         [alert show];
@@ -62,25 +62,29 @@
 }
 
 
--(NSInteger)parseOut:(NSString *)phoneNumber
+-(NSNumber*)parseOut:(NSString *)phoneNumber
 {
     NSString *output = @"";
-    for (int i = 1; i < phoneNumber.length; i++)
+    for (int i = 0; i < phoneNumber.length; i++)
     {
-        NSString *s = [phoneNumber substringWithRange:(NSMakeRange(i-1, 1))];
+        NSString *s = [phoneNumber substringWithRange:(NSMakeRange(i, 1))];
         NSInteger j = [s intValue];
-        NSLog(@"%d", j);
         if (j >= 0 && j <= 9)
         {
-            [output stringByAppendingString:s];
-            NSLog(@"loop");
-            NSLog(output);
+            if (j ==0)
+            {
+                if (![s isEqualToString:@"0"])
+                {
+                    continue;
+                }
+            }
+            output = [output stringByAppendingString:s];
         }
     }
-    NSLog(@"lala");
-    NSLog(output);
-    NSLog(@"%d", [output intValue]);
-    return [output intValue];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterBehaviorDefault];
+    NSNumber *myNumber = [f numberFromString:output];
+    return myNumber;
 }
 
 //handle username entered in alert
@@ -102,9 +106,6 @@
         {
             UITextField *textfield = [alertView textFieldAtIndex:0];
             _phoneNumber = [self parseOut:(textfield.text)];
-            NSLog(@"Herherhere");
-            NSLog(textfield.text);
-            NSLog(@"%d", _phoneNumber);
         }
     }
 }
