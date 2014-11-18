@@ -8,7 +8,7 @@
 
 #import "ASettingsTableViewController.h"
 
-@interface ASettingsTableViewController ()
+@interface ASettingsTableViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -38,18 +38,77 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 6;
+    return 7;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Enter username
     if (indexPath.row == 5)
     {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your username." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
-    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    [alert show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your username." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alert setTag:1];
+        [alert show];
+    }
+    //Enter phone number
+    if (indexPath.row == 6)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your phone number." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alert setTag:2];
+        [alert show];
     }
     
 }
+
+
+-(NSInteger)parseOut:(NSString *)phoneNumber
+{
+    NSString *output = @"";
+    for (int i = 1; i < phoneNumber.length; i++)
+    {
+        NSString *s = [phoneNumber substringWithRange:(NSMakeRange(i-1, 1))];
+        NSInteger j = [s intValue];
+        NSLog(@"%d", j);
+        if (j >= 0 && j <= 9)
+        {
+            [output stringByAppendingString:s];
+            NSLog(@"loop");
+            NSLog(output);
+        }
+    }
+    NSLog(@"lala");
+    NSLog(output);
+    NSLog(@"%d", [output intValue]);
+    return [output intValue];
+}
+
+//handle username entered in alert
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    //grab username
+    if ([alertView tag] == 1)
+    {
+        if (buttonIndex == 1)
+        {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+            _name = textfield.text;
+            NSLog(_name);
+        }
+    }
+    //grab phone number
+    else if ([alertView tag] == 2)
+    {
+        if (buttonIndex == 1)
+        {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+            _phoneNumber = [self parseOut:(textfield.text)];
+            NSLog(@"Herherhere");
+            NSLog(textfield.text);
+            NSLog(@"%d", _phoneNumber);
+        }
+    }
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

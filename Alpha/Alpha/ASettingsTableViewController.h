@@ -10,4 +10,7 @@
 
 @interface ASettingsTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSString *name;
+@property (assign, nonatomic) NSInteger phoneNumber;
+
 @end
