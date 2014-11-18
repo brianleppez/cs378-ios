@@ -11,6 +11,7 @@
 @interface ASettingsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *groupName;
 @property (assign, nonatomic) NSNumber* phoneNumber;
 
 @end

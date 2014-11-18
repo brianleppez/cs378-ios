@@ -42,12 +42,20 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Enter groupname
+    if (indexPath.row == 1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Group Name" message:@"Enter your group name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alert setTag:1];
+        [alert show];
+    }
     //Enter username
     if (indexPath.row == 5)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your username." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [alert setTag:1];
+        [alert setTag:5];
         [alert show];
     }
     //Enter phone number
@@ -55,7 +63,7 @@
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"Enter your phone number." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [alert setTag:2];
+        [alert setTag:6];
         [alert show];
     }
     
@@ -89,18 +97,26 @@
 
 //handle username entered in alert
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    //grab username
+    //grab group name
     if ([alertView tag] == 1)
+    {
+        if (buttonIndex ==1)
+        {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+            _groupName = textfield.text;
+        }
+    }
+    //grab username
+    else if ([alertView tag] == 5)
     {
         if (buttonIndex == 1)
         {
             UITextField *textfield = [alertView textFieldAtIndex:0];
             _name = textfield.text;
-            NSLog(_name);
         }
     }
     //grab phone number
-    else if ([alertView tag] == 2)
+    else if ([alertView tag] == 6)
     {
         if (buttonIndex == 1)
         {
