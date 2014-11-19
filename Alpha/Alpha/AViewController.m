@@ -27,7 +27,7 @@
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestAlwaysAuthorization];
+    //[locationManager requestAlwaysAuthorization]; - throws an error
     [locationManager startUpdatingLocation];
     
     //set battery monitoring
@@ -47,14 +47,25 @@
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
     }];
     [mapView setDelegate:self];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation* newLocation = [locations lastObject];
     NSString* lat = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
     NSString* lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
-    [[myRootRef childByAppendingPath:@"kevinlin/lat"] setValue:lat];
-    [[myRootRef childByAppendingPath:@"kevinlin/lon"] setValue:lon];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults stringForKey:@"username"];
+    if (username == nil)
+    {
+        username = @"Anonymous";
+    }
+    NSLog(username);
+    NSString *namelat = [username stringByAppendingString:@"/lat"];
+    NSString *namelon = [username stringByAppendingString:@"/lon"];
+    
+    [[myRootRef childByAppendingPath:namelat] setValue:lat];
+    [[myRootRef childByAppendingPath:namelon] setValue:lon];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation

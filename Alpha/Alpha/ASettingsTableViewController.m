@@ -97,13 +97,17 @@
 
 //handle username entered in alert
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     //grab group name
     if ([alertView tag] == 1)
     {
         if (buttonIndex ==1)
         {
             UITextField *textfield = [alertView textFieldAtIndex:0];
-            _groupName = textfield.text;
+            [defaults setObject:textfield.text forKey:@"groupName"];
+            //_groupName = textfield.text;
         }
     }
     //grab username
@@ -112,7 +116,8 @@
         if (buttonIndex == 1)
         {
             UITextField *textfield = [alertView textFieldAtIndex:0];
-            _name = textfield.text;
+            [defaults setObject:textfield.text forKey:@"username"];
+            // _name = textfield.text;
         }
     }
     //grab phone number
@@ -122,6 +127,7 @@
         {
             UITextField *textfield = [alertView textFieldAtIndex:0];
             _phoneNumber = [self parseOut:(textfield.text)];
+            [defaults setObject:_phoneNumber forKey:@"phoneNumber"];
         }
     }
 }
