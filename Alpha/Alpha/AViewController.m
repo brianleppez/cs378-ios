@@ -21,6 +21,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self->mapView setShowsUserLocation:YES];
+    
+    //initialize location manager
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestAlwaysAuthorization];
+    [locationManager startUpdatingLocation];
     
     //set battery monitoring
     UIDevice *device = [UIDevice currentDevice];
@@ -39,6 +48,11 @@
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
     }];
     [mapView setDelegate:self];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    CLLocation* newLocation = [locations lastObject];
+    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation

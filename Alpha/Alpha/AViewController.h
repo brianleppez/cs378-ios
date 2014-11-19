@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AViewController : UIViewController {
-
+@interface AViewController : UIViewController <CLLocationManagerDelegate>{
     __weak IBOutlet MKMapView *mapView;
+    CLLocationManager *locationManager;
 }
 @end

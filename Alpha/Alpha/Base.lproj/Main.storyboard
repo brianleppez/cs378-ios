@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cbJ-wj-bfi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cbJ-wj-bfi">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="jgv-dQ-8SP">
             <objects>
                 <navigationController id="oYV-Z4-DCJ" sceneMemberID="viewController">
@@ -21,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-359" y="-291"/>
         </scene>
-        <!--Navigation Controller - Bus-->
+        <!--Bus-->
         <scene sceneID="wX3-6r-Ojm">
             <objects>
                 <navigationController id="hkA-FE-P8U" sceneMemberID="viewController">
@@ -38,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="-359" y="385"/>
         </scene>
-        <!--Table View Controller - Bus-->
+        <!--Bus-->
         <scene sceneID="cUh-wL-VHn">
             <objects>
                 <tableViewController id="7OY-yY-9rC" sceneMemberID="viewController">
@@ -143,7 +144,7 @@
             </objects>
             <point key="canvasLocation" x="133" y="385"/>
         </scene>
-        <!--Navigation Controller - Taxi-->
+        <!--Taxi-->
         <scene sceneID="mYW-Br-WZb">
             <objects>
                 <navigationController id="0w9-5r-025" sceneMemberID="viewController">
@@ -160,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="-353" y="1061"/>
         </scene>
-        <!--Taxi Table View Controller - Taxi-->
+        <!--Taxi-->
         <scene sceneID="7vQ-BI-V9m">
             <objects>
                 <tableViewController id="wUq-9c-6Yl" customClass="ATaxiTableViewController" sceneMemberID="viewController">
@@ -253,7 +254,7 @@
             </objects>
             <point key="canvasLocation" x="133" y="1061"/>
         </scene>
-        <!--Table View Controller - West Campus E-Bus-->
+        <!--West Campus E-Bus-->
         <scene sceneID="FBV-Sj-GPX">
             <objects>
                 <tableViewController id="ipe-se-loJ" sceneMemberID="viewController">
@@ -481,7 +482,7 @@
             </objects>
             <point key="canvasLocation" x="672" y="-1071"/>
         </scene>
-        <!--View Controller - Map View-->
+        <!--Map View-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="AViewController" sceneMemberID="viewController">
@@ -523,7 +524,7 @@
             </objects>
             <point key="canvasLocation" x="133" y="-291"/>
         </scene>
-        <!--Settings Table View Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="Zp0-yg-dmG">
             <objects>
                 <tableViewController id="Snf-Wc-klV" customClass="ASettingsTableViewController" sceneMemberID="viewController">
@@ -628,7 +629,6 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kL-cu-u2g">
                                                     <rect key="frame" x="15" y="11" width="124" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -645,7 +645,6 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-W9-v6w">
                                                     <rect key="frame" x="15" y="11" width="152" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
