@@ -34,14 +34,15 @@
     UIDevice *device = [UIDevice currentDevice];
     device.batteryMonitoringEnabled = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
-    
-    
+
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *groupName = [defaults stringForKey:@"groupName"];
     myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
-    [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
+    [myGroupRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary* firebaseDict = snapshot.value;
         [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
@@ -56,16 +57,18 @@
     NSString* lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *username = [defaults stringForKey:@"username"];
+    NSString *groupName = [defaults stringForKey:@"groupName"];
     if (username == nil)
     {
         username = @"Anonymous";
     }
-    NSLog(username);
-    NSString *namelat = [username stringByAppendingString:@"/lat"];
-    NSString *namelon = [username stringByAppendingString:@"/lon"];
-    
-    [[myRootRef childByAppendingPath:namelat] setValue:lat];
-    [[myRootRef childByAppendingPath:namelon] setValue:lon];
+    if (groupName == nil){
+        groupName = @"Groupless";
+    }
+    NSString *latPath = [NSString stringWithFormat:@"%@/%@/lat", groupName, username];
+    NSString *lonPath = [NSString stringWithFormat:@"%@/%@/lon", groupName, username];
+    [[myRootRef childByAppendingPath:latPath] setValue:lat];
+    [[myRootRef childByAppendingPath:lonPath] setValue:lon];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
