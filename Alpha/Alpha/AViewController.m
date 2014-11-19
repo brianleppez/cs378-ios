@@ -8,7 +8,6 @@
 
 #import "AViewController.h"
 #import "AMapViewAnnotation.h"
-#import <Firebase/Firebase.h>
 
 @interface AViewController ()
 
@@ -40,7 +39,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     
-    Firebase *myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
+    myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
     [myRootRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary* firebaseDict = snapshot.value;
@@ -52,7 +51,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation* newLocation = [locations lastObject];
-    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    NSString* lat = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+    NSString* lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+    [[myRootRef childByAppendingPath:@"kevinlin/lat"] setValue:lat];
+    [[myRootRef childByAppendingPath:@"kevinlin/lon"] setValue:lon];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
