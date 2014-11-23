@@ -39,6 +39,9 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *groupName = [defaults stringForKey:@"groupName"];
+    if (groupName == nil){
+        groupName = @"Groupless";
+    }
     myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
     Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
