@@ -42,6 +42,7 @@
     if (groupName == nil){
         groupName = @"Groupless";
     }
+    [groupTitle setTitle:groupName];
     myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
     Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];

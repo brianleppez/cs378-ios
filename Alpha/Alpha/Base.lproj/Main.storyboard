@@ -519,6 +519,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="groupTitle" destination="zXm-WN-fMC" id="hi4-nM-RRW"/>
                         <outlet property="mapView" destination="9lL-DV-IB8" id="1pz-pN-fay"/>
                     </connections>
                 </viewController>

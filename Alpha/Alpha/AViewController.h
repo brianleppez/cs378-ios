@@ -15,5 +15,6 @@
     __weak IBOutlet MKMapView *mapView;
     CLLocationManager *locationManager;
     Firebase* myRootRef;
+    __weak IBOutlet UINavigationItem *groupTitle;
 }
 @end
