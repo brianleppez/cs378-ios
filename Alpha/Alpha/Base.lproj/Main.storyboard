@@ -446,26 +446,26 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGu-vT-3wd">
-                                <rect key="frame" x="0.0" y="64" width="325" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="xuj-X9-ZSb">
-                                        <rect key="frame" x="22" y="257" width="280" height="140"/>
+                                        <rect key="frame" x="22" y="151" width="280" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1H-wO-z7D">
-                                        <rect key="frame" x="5" y="2" width="280" height="43"/>
+                                        <rect key="frame" x="5" y="66" width="280" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-oG-wZv">
-                                        <rect key="frame" x="5" y="53" width="320" height="162"/>
+                                        <rect key="frame" x="5" y="314" width="320" height="162"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-IN-PGJ">
-                                        <rect key="frame" x="266" y="405" width="36" height="30"/>
+                                        <rect key="frame" x="266" y="299" width="36" height="30"/>
                                         <state key="normal" title="Send">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -500,22 +500,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGq-QV-4tk">
-                                <rect key="frame" x="86" y="477" width="149" height="30"/>
-                                <state key="normal" title="Send Group Message">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mUa-NS-2EQ" kind="push" id="1Hp-nh-dc2"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-DV-IB8">
-                                <rect key="frame" x="0.0" y="63" width="320" height="391"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="456"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map View" id="zXm-WN-fMC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="NaW-sI-0Wv">
+                            <connections>
+                                <segue destination="mUa-NS-2EQ" kind="push" id="OOM-re-sXl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="Uc3-Xg-bN2">
                             <connections>
                                 <segue destination="Snf-Wc-klV" kind="push" id="zsC-vP-Ajc"/>
