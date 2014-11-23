@@ -49,9 +49,8 @@
         NSDictionary* firebaseDict = snapshot.value;
         [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
+
     }];
-    [mapView setDelegate:self];
-    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -138,6 +137,8 @@
         point.title = title;
         [annotations addObject:point];
     }
+    // [self->mapView addAnnotation:annotations];
+    [self->mapView showAnnotations:annotations animated:YES];
     return annotations;
     
 }
