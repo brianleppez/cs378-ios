@@ -38,6 +38,10 @@
 
 	// Do any additional setup after loading the view, typically from a nib.
     
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
     //Null check for default values
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -59,7 +63,6 @@
         NSDictionary* firebaseDict = snapshot.value;
         [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
-
     }];
 }
 
