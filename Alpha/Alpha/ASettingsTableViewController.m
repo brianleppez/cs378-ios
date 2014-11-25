@@ -141,7 +141,7 @@
     {
         if (buttonIndex ==1)
         {
-            [defaults setObject:@"Groupless" forKey:@"groupName"];
+            [defaults setObject:@"RideHome" forKey:@"groupName"];
         }
     }
     //grab username

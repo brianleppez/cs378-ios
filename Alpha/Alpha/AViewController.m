@@ -45,7 +45,7 @@
         [defaults setObject:@"Anonymous" forKey:@"username"];
     }
     if ([defaults stringForKey:@"groupName"] == nil) {
-        [defaults setObject:@"Groupless" forKey:@"groupName"];
+        [defaults setObject:@"RideHome" forKey:@"groupName"];
     }
     if ([defaults objectForKey:@"phoneNumber"] == nil) {
         [defaults setObject:[NSNumber numberWithInt:1234567890] forKey:@"phoneNumber"];
