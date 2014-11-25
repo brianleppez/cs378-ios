@@ -14,8 +14,6 @@
 @end
 
 @implementation AViewController
-#define METERS_PER_MILE 1609.344
-
 
 - (void)viewDidLoad
 {
@@ -34,9 +32,6 @@
     UIDevice *device = [UIDevice currentDevice];
     device.batteryMonitoringEnabled = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
-
-
-	// Do any additional setup after loading the view, typically from a nib.
     
 
 }
@@ -60,7 +55,7 @@
     [self.view addSubview:mapView];
     Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
     [myGroupRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSDictionary* firebaseDict = snapshot.value;
+        NSDictionary* firebaseDict = snapshot.value;        
         [self deleteAllPins];
         [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
     }];
