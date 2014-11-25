@@ -42,12 +42,29 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Enter home address
+    if (indexPath.row == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Address" message:@"Enter your home address." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alert setTag:0];
+        [alert show];
+    }
     //Enter groupname
     if (indexPath.row == 1)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Group Name" message:@"Enter your group name." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
         [alert setTag:1];
+        [alert show];
+    }
+    
+    //Leave group
+    if (indexPath.row == 3)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Leave Group" message:@"Are you sure you want to leave your group?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+        [alert setAlertViewStyle:UIAlertViewStyleDefault];
+        [alert setTag:3];
         [alert show];
     }
     //Enter username
@@ -99,7 +116,15 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+    //grab address
+    if ([alertView tag] == 0)
+    {
+        if (buttonIndex ==1)
+        {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+            [defaults setObject:textfield.text forKey:@"address"];
+        }
+    }
     //grab group name
     if ([alertView tag] == 1)
     {
@@ -108,6 +133,15 @@
             UITextField *textfield = [alertView textFieldAtIndex:0];
             [defaults setObject:textfield.text forKey:@"groupName"];
             //_groupName = textfield.text;
+        }
+    }
+    
+    //leave group
+    if ([alertView tag] == 3)
+    {
+        if (buttonIndex ==1)
+        {
+            [defaults setObject:@"Groupless" forKey:@"groupName"];
         }
     }
     //grab username

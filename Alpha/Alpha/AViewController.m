@@ -68,6 +68,10 @@
     if (groupName == nil){
         groupName = @"Groupless";
     }
+    if (!([groupTitle.title isEqualToString:[defaults stringForKey:@"groupName"]]))
+    {
+        [groupTitle setTitle:groupName];
+    }
     NSString *latPath = [NSString stringWithFormat:@"%@/%@/lat", groupName, username];
     NSString *lonPath = [NSString stringWithFormat:@"%@/%@/lon", groupName, username];
     [[myRootRef childByAppendingPath:latPath] setValue:lat];
