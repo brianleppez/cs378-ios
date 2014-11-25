@@ -8,7 +8,7 @@
         <scene sceneID="jgv-dQ-8SP">
             <objects>
                 <navigationController id="oYV-Z4-DCJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="wYJ-VV-VoJ"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_marker-50" id="wYJ-VV-VoJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Osk-yT-EOS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,7 +25,7 @@
         <scene sceneID="wX3-6r-Ojm">
             <objects>
                 <navigationController id="hkA-FE-P8U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bus" id="8nE-Y1-NOY"/>
+                    <tabBarItem key="tabBarItem" title="Bus" image="bus-50" id="8nE-Y1-NOY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ifx-gP-wd4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -153,7 +153,7 @@
         <scene sceneID="mYW-Br-WZb">
             <objects>
                 <navigationController id="0w9-5r-025" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Taxi" id="Yq9-IN-xcY"/>
+                    <tabBarItem key="tabBarItem" title="Taxi" image="taxi-50" id="Yq9-IN-xcY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GRc-3h-qZc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -683,7 +683,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bus-50" width="30" height="30"/>
+        <image name="map_marker-50" width="30" height="30"/>
         <image name="settingsxsmall" width="30" height="30"/>
+        <image name="taxi-50" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
