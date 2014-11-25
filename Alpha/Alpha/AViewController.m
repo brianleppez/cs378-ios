@@ -35,13 +35,22 @@
     device.batteryMonitoringEnabled = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
 
+
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //Null check for default values
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *groupName = [defaults stringForKey:@"groupName"];
-    if (groupName == nil){
-        groupName = @"Groupless";
+    
+    if ([defaults stringForKey:@"username"] == nil) {
+        [defaults setObject:@"Anonymous" forKey:@"username"];
     }
+    if ([defaults stringForKey:@"groupName"] == nil) {
+        [defaults setObject:@"Groupless" forKey:@"groupName"];
+    }
+    if ([defaults objectForKey:@"phoneNumber"] == nil) {
+        [defaults setObject:[NSNumber numberWithInt:1234567890] forKey:@"phoneNumber"];
+    }
+    NSString *groupName = [defaults stringForKey:@"groupName"];
     [groupTitle setTitle:groupName];
     myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
@@ -61,13 +70,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *username = [defaults stringForKey:@"username"];
     NSString *groupName = [defaults stringForKey:@"groupName"];
-    if (username == nil)
-    {
-        username = @"Anonymous";
-    }
-    if (groupName == nil){
-        groupName = @"Groupless";
-    }
+    
+    //reset screen title if necessary
     if (!([groupTitle.title isEqualToString:[defaults stringForKey:@"groupName"]]))
     {
         [groupTitle setTitle:groupName];
