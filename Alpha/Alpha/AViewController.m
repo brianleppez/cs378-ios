@@ -36,6 +36,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self deleteAllPins];
+    [annotations removeAllObjects];
     //Null check for default values
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -55,6 +57,7 @@
     Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
     [myGroupRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         [self createAnnotation:snapshot];
+        NSLog(@"Number of Annotations: %lu", [annotations count]);
         [self->mapView showAnnotations:annotations animated:YES];
     }];
     [myGroupRef observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
