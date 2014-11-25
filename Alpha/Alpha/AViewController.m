@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
     [self->mapView setShowsUserLocation:YES];
+    annotations = [[NSMutableArray alloc]init];
     
     //initialize location manager
     locationManager = [[CLLocationManager alloc] init];
@@ -32,8 +33,6 @@
     UIDevice *device = [UIDevice currentDevice];
     device.batteryMonitoringEnabled = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -54,10 +53,12 @@
     myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
     [self.view addSubview:mapView];
     Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
-    [myGroupRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSDictionary* firebaseDict = snapshot.value;        
-        [self deleteAllPins];
-        [self->mapView addAnnotations: [self createAnnotations:firebaseDict]];
+    [myGroupRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+        [self createAnnotation:snapshot];
+        [self->mapView showAnnotations:annotations animated:YES];
+    }];
+    [myGroupRef observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
+        [self updateAnnotation:snapshot];
     }];
 }
 
@@ -115,32 +116,39 @@
     pins = nil;
 }
 
--(NSMutableArray *) createAnnotations:(NSDictionary*)json {
-    NSMutableArray *annotations = [[NSMutableArray alloc] init];
-    
+-(void) createAnnotation:(FDataSnapshot*)snapshot{
     // Read locations from the locations property list
+    NSDictionary* value = snapshot.value;
+    NSString *title = snapshot.key;
+    NSNumber *latitude = [value objectForKey:@"lat"];
+    NSNumber *longitude = [value objectForKey:@"lon"];
     
-    for(id key in json) {
-        NSDictionary* value = [json objectForKey:key];
-        NSString *title = key;
-        NSNumber *latitude = [value objectForKey:@"lat"];
-        NSNumber *longitude = [value objectForKey:@"lon"];
-        
-        //Create coordinates from the latitude and longitude values
-        CLLocationCoordinate2D coord;
-        coord.latitude = latitude.doubleValue;
-        coord.longitude = longitude.doubleValue;
-        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-        point.coordinate = coord;
-        point.title = title;
-        [annotations addObject:point];
-    }
-    // [self->mapView addAnnotation:annotations];
-    [self->mapView showAnnotations:annotations animated:YES];
-    return annotations;
-    
+    //Create coordinates from the latitude and longitude values
+    CLLocationCoordinate2D coord;
+    coord.latitude = latitude.doubleValue;
+    coord.longitude = longitude.doubleValue;
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = coord;
+    point.title = title;
+    [annotations addObject:point];
+    [self->mapView addAnnotation:point];
 }
 
+-(void) updateAnnotation:(FDataSnapshot*)snapshot{
+    NSString *title = snapshot.key;
+    NSNumber *latitude = [snapshot.value objectForKey:@"lat"];
+    NSNumber *longitude = [snapshot.value objectForKey:@"lon"];
+    CLLocationCoordinate2D coord;
+    coord.latitude = latitude.doubleValue;
+    coord.longitude = longitude.doubleValue;
+    for (int i = 0; i < [annotations count]; i++) {
+        MKPointAnnotation *point = [annotations objectAtIndex:i];
+        if ([point.title isEqualToString:title]){
+            point.coordinate = coord;
+            break;
+        }
+    }
+}
 
 - (NSNumber *)getBatteryLevel
 {

@@ -16,5 +16,6 @@
     CLLocationManager *locationManager;
     Firebase* myRootRef;
     __weak IBOutlet UINavigationItem *groupTitle;
+    NSMutableArray *annotations;
 }
 @end
