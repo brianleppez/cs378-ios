@@ -55,9 +55,13 @@
     names = [names stringByAppendingString:@"Recipients: "];
     [myGroupRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         for (id key in snapshot.value) {
+            if ([key isEqualToString:[defaults stringForKey:@"username"]]) {
+                
+            }
+            else {
             names = [names stringByAppendingString:key];
             names = [names stringByAppendingString:@", "];
-            
+            }
         }
         if ([names length] > 0) {
             names = [names substringToIndex:[names length] - 2];

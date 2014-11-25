@@ -38,7 +38,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 7;
+    return 6;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,27 +60,27 @@
     }
     
     //Leave group
-    if (indexPath.row == 3)
+    if (indexPath.row == 2)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Leave Group" message:@"Are you sure you want to leave your group?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
         [alert setAlertViewStyle:UIAlertViewStyleDefault];
-        [alert setTag:3];
+        [alert setTag:2];
         [alert show];
     }
     //Enter username
-    if (indexPath.row == 5)
+    if (indexPath.row == 4)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username" message:@"Enter your username." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [alert setTag:5];
+        [alert setTag:4];
         [alert show];
     }
     //Enter phone number
-    if (indexPath.row == 6)
+    if (indexPath.row == 5)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"Enter your phone number." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [alert setTag:6];
+        [alert setTag:5];
         [alert show];
     }
     
@@ -137,7 +137,7 @@
     }
     
     //leave group
-    if ([alertView tag] == 3)
+    if ([alertView tag] == 2)
     {
         if (buttonIndex ==1)
         {
@@ -145,7 +145,7 @@
         }
     }
     //grab username
-    else if ([alertView tag] == 5)
+    else if ([alertView tag] == 4)
     {
         if (buttonIndex == 1)
         {
@@ -155,7 +155,7 @@
         }
     }
     //grab phone number
-    else if ([alertView tag] == 6)
+    else if ([alertView tag] == 5)
     {
         if (buttonIndex == 1)
         {
