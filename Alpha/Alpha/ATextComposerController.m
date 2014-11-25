@@ -31,7 +31,6 @@
     [super viewDidLoad];
     [self.sendButton addTarget:self action:@selector(btnSendClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.messageText setDelegate:self];
-    [self.friendsLabel setText:@"Recipients: Rachel, Becky"];
     [self.messageText setDelegate:self];
     [self.messageText.layer setBorderWidth:1.0f];
     [self.messageText.layer setBorderColor:[[UIColor lightGrayColor]CGColor]];
@@ -43,7 +42,29 @@
                     @"I'm ready to go", @"I can't find you"];
     [self.messagePicker setDataSource:self];
     [self.messagePicker setDelegate:self];
-        //[self.messageText setDelegate:self];
+    
+}
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:false];
+    // Get names of recipients for text
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *groupName = [defaults stringForKey:@"groupName"];
+    Firebase* myRootRef = [[Firebase alloc] initWithUrl:@"https://cs378-ios.firebaseio.com"];
+    Firebase* myGroupRef = [myRootRef childByAppendingPath:groupName];
+    __block NSString *names = [[NSString alloc] init];
+    names = [names stringByAppendingString:@"Recipients: "];
+    [myGroupRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        for (id key in snapshot.value) {
+            names = [names stringByAppendingString:key];
+            names = [names stringByAppendingString:@", "];
+            
+        }
+        if ([names length] > 0) {
+            names = [names substringToIndex:[names length] - 2];
+        }
+        [self.friendsLabel setText:names];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning
