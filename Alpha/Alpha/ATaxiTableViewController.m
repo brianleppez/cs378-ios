@@ -42,16 +42,64 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"I'm here");
+    //Yellow Cab
     if (indexPath.row == 0) {
-        NSString *phoneNumber = @"1234567890";
+        NSString *phoneNumber = @"5124529999";
         NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", phoneNumber]];
-        NSLog(@"before if statement on didselectrowatindexpath");
         if ([[UIApplication sharedApplication] canOpenURL:phoneURL]) {
             [[UIApplication sharedApplication] openURL:phoneURL];
         }
         else {
-            NSLog(@"CALL FACILITY IS NOT AVAILABLE");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"Call facilities not available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    //Austin Cab
+    if (indexPath.row == 1) {
+        NSString *phoneNumber = @"5124782222";
+        NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", phoneNumber]];
+        if ([[UIApplication sharedApplication] canOpenURL:phoneURL]) {
+            [[UIApplication sharedApplication] openURL:phoneURL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"Call facilities not available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    //Lone Star Cab
+    if (indexPath.row == 2) {
+        NSString *phoneNumber = @"5128364900";
+        NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", phoneNumber]];
+        if ([[UIApplication sharedApplication] canOpenURL:phoneURL]) {
+            [[UIApplication sharedApplication] openURL:phoneURL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"Call facilities not available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    //Austin Express
+    if (indexPath.row == 3) {
+        NSString *phoneNumber = @"5126664141";
+        NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", phoneNumber]];
+        if ([[UIApplication sharedApplication] canOpenURL:phoneURL]) {
+            [[UIApplication sharedApplication] openURL:phoneURL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"Call facilities not available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    //Uber
+    if (indexPath.row == 4) {
+        NSString *url = @"uber://";
+        NSURL *phoneURL = [NSURL URLWithString:url];
+        if ([[UIApplication sharedApplication] canOpenURL:phoneURL]) {
+            [[UIApplication sharedApplication] openURL:phoneURL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"Cannot open Uber." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
     }
 }
@@ -67,7 +115,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 4;
+    return 5;
 }
 
 /*

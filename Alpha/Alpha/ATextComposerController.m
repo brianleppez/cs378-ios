@@ -99,26 +99,17 @@
     }
     else
     {
-        /*ATextModel *aTextModel = [[ATextModel alloc]init];
-        aTextModel.delegate = self;
-        [aTextModel sendText:(messageText)];*/
         [self sendText:messageText];
     }
 }
 
 -(void)sendText:(NSString *)text
 {
-    //static data for the friends array for now
-    /*NSDictionary* friends = @{@"Rachel" : [NSNumber numberWithLongLong:(8308325680)],
-                              @"Becky" : [NSNumber numberWithLongLong:(5126007770)]};
-    NSArray *recipents = @[@"8308325680", @"5126007770"];*/
-    
-    
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
 	if([MFMessageComposeViewController canSendText])
 	{
 		controller.body = text;
-		controller.recipients = [NSArray arrayWithObjects:@"8308325680", @"5126007770", nil];
+		controller.recipients = [NSArray arrayWithObjects:@"8308325680", @"5126007770"];
 		controller.messageComposeDelegate = self;
 		[self presentModalViewController:controller animated:YES];
 	}
